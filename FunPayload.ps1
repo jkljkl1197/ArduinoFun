@@ -9,3 +9,5 @@ Start-Sleep -s 6;
 get-process iexplore | stop-process
 Start-Sleep -s 1;
 Start-Process "https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1";
+Start-Sleep -s 10;
+Start-Process "https://www.youtube.com/watch?v=BYIzxLIW71E";
