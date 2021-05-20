@@ -40,6 +40,7 @@ void loop() {
     delay(100);
     bleKeyboard.releaseAll();
     Serial.println("Finish");
+    delay(50000);
   } else {
     Serial.println("Not connected");
   }
