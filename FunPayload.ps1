@@ -1,1 +1,0 @@
-Add-Type -AssemblyName System.speech; $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer; $speak.Speak("You Have Been Hack,a crypto locker will execute, send bitcoin to my address now"); Start-Process "https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1"
