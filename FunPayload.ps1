@@ -10,5 +10,5 @@ Start-Process "https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1";
 get-process iexplore | stop-process
 Start-Sleep -s 10;
 Start-Process "https://www.youtube.com/watch?v=BYIzxLIW71E";
-Start-Sleep -s 64;
+Start-Sleep -s 72;
 $speak.Speak("have you see the quenouille!");
