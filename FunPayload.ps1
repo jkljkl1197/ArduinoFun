@@ -9,9 +9,9 @@ Start-Sleep -s 6;
 Get-Process msedge | Stop-Process
 Start-Sleep -s 2;
 Start-Process msedge.exe '--kiosk https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1 --edge-kiosk-type=fullscreen'
-get-process msedge | stop-process
 Start-Sleep -s 10;
-Start-Process msedge.exe '--kiosk https://www.youtube.com/watch?v=BYIzxLIW71E?autoplay=1 --edge-kiosk-type=fullscreen'
 get-process msedge | stop-process
+Start-Process msedge.exe '--kiosk https://www.youtube.com/embed/BYIzxLIW71E?autoplay=1 --edge-kiosk-type=fullscreen'
 Start-Sleep -s 72;
+get-process msedge | stop-process
 $speak.Speak("have you see the quenouille!");
