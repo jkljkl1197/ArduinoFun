@@ -208,7 +208,7 @@ netsh advfirewall firewall set rule group='remote desktop' new enable=Yes
 
 ### Windows Share Drive C:
 #$Share = [WmiClass]'Win32_Share'
-#$Share.Create('C:\', 'netShare', 0)
+#$Share.Create('C:\', 'netShare$', 0)
 #netsh advfirewall firewall set rule group=\"File and Printer Sharing\" new enable=Yes
 
 ### Get local Email config from Outlook | Not Finish to complete |
