@@ -195,6 +195,7 @@ $Report = $Report  + "<div id=left><h3>Computer Information</h3><br><table><tr><
 ### ???
 #REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe" /v Debugger /t REG_SZ /d C:\windows\system32\cmd.exe
 
+### Multiple session for a user
 REG ADD HKLM\System\CurrentControlSet\Control\TerminalServer /v fSingleSessionPerUser /d 0 /f
 
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -Name fDenyTSConnections -Value 0
