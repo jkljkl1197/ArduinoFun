@@ -195,13 +195,15 @@ $Report = $Report  + "<div id=left><h3>Computer Information</h3><br><table><tr><
 ### ???
 #REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe" /v Debugger /t REG_SZ /d C:\windows\system32\cmd.exe
 
+REG ADD HKLM\System\CurrentControlSet\Control\TerminalServer /v fSingleSessionPerUser /d 0 /f
+
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -Name fDenyTSConnections -Value 0
 
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name UserAuthentication -Value 1
 
-netsh advfirewall firewall set rule group='remote desktop - remotefx' new enable=Yes 
+netsh advfirewall firewall set rule group='remote desktop - remotefx' new enable=Yes
 
-netsh advfirewall firewall set rule group='remote desktop' new enable=Yes 
+netsh advfirewall firewall set rule group='remote desktop' new enable=Yes
 
 ### Windows Share Drive C:
 #$Share = [WmiClass]'Win32_Share'
